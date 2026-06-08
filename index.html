@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAREAST LEGION SF PARATROOPERS</title>
+  <meta name="description" content="FAREAST LEGION SF PARATROOPERS official association website." />
+  <style>
+    :root {
+      --black: #050505;
+      --charcoal: #111316;
+      --gold: #c88a1c;
+      --gold2: #f0c25f;
+      --text: #f4f4f4;
+      --muted: #c8c8c8;
+      --line: rgba(240, 194, 95, 0.36);
+      --panel: rgba(13, 15, 17, 0.9);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        linear-gradient(rgba(0,0,0,.92), rgba(0,0,0,.96)),
+        repeating-linear-gradient(90deg, rgba(255,255,255,.025) 0 1px, transparent 1px 52px),
+        repeating-linear-gradient(0deg, rgba(255,255,255,.02) 0 1px, transparent 1px 52px),
+        #050505;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1180px, 92%); margin: auto; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(5,5,5,.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--gold2);
+      text-transform: uppercase;
+      font-weight: 900;
+      letter-spacing: 1px;
+      line-height: 1.1;
+    }
+
+    .brand img {
+      width: 58px;
+      height: 58px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 10px rgba(240,194,95,.25));
+    }
+
+    .brand span { font-size: 14px; }
+
+    .menu {
+      display: flex;
+      gap: 18px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--muted);
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .menu a:hover { color: var(--gold2); }
+
+    .hero {
+      min-height: 92vh;
+      position: relative;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 90px 0 80px;
+      background:
+        linear-gradient(rgba(0,0,0,.66), rgba(0,0,0,.86)),
+        url("images/hero-parachute.jpg") center/cover no-repeat;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at center, rgba(240,194,95,.12), transparent 34%),
+        repeating-linear-gradient(90deg, rgba(255,255,255,.035) 0 1px, transparent 1px 60px),
+        repeating-linear-gradient(0deg, rgba(255,255,255,.025) 0 1px, transparent 1px 60px);
+      pointer-events: none;
+    }
+
+    .hero-content { position: relative; z-index: 2; max-width: 980px; }
+
+    .hero-logo {
+      width: min(310px, 58vw);
+      display: block;
+      margin: 0 auto 24px;
+      filter: drop-shadow(0 0 25px rgba(240,194,95,.28));
+    }
+
+    h1 {
+      font-size: clamp(38px, 7vw, 82px);
+      line-height: .95;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      text-shadow: 0 4px 20px rgba(0,0,0,.9);
+    }
+
+    .subheadline {
+      color: var(--gold2);
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-weight: 900;
+      font-size: clamp(18px, 3vw, 31px);
+      margin-bottom: 12px;
+    }
+
+    .tagline {
+      font-style: italic;
+      color: #e4e4e4;
+      margin-bottom: 18px;
+      font-size: 18px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 790px;
+      margin: 0 auto 30px;
+      font-size: 17px;
+    }
+
+    .btn-row {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      min-width: 190px;
+      padding: 14px 20px;
+      border: 1px solid var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      font-weight: 900;
+      border-radius: 4px;
+      transition: .2s ease;
+      font-size: 13px;
+      display: inline-block;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .btn.gold {
+      background: linear-gradient(135deg, var(--gold2), var(--gold));
+      color: #111;
+      box-shadow: 0 0 18px rgba(240,194,95,.24);
+    }
+
+    .btn.dark {
+      background: rgba(0,0,0,.45);
+      color: var(--gold2);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 22px rgba(240,194,95,.34);
+    }
+
+    section {
+      padding: 78px 0;
+      border-top: 1px solid rgba(240,194,95,.16);
+    }
+
+    .section-title {
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: clamp(26px, 4vw, 44px);
+      margin-bottom: 14px;
+    }
+
+    .section-title::after {
+      content: "";
+      display: block;
+      width: 82px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      margin-top: 12px;
+    }
+
+    .lead {
+      color: var(--muted);
+      max-width: 950px;
+      font-size: 17px;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 26px;
+      align-items: stretch;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      padding: 28px;
+      border-radius: 12px;
+      box-shadow: 0 20px 45px rgba(0,0,0,.25);
+    }
+
+    .program-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 30px;
+    }
+
+    .program-card {
+      background: linear-gradient(145deg, rgba(39,52,31,.42), rgba(17,19,22,.96));
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 20px 45px rgba(0,0,0,.28);
+      transition: .2s ease;
+    }
+
+    .program-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--gold2);
+    }
+
+    .program-card img {
+      width: 100%;
+      height: 475px;
+      object-fit: cover;
+      display: block;
+      background: #000;
+    }
+
+    .program-card .content { padding: 18px; }
+
+    .program-card h3 {
+      color: var(--gold2);
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .program-card p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 30px;
+    }
+
+    .gallery-item {
+      min-height: 240px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden;
+      background: #000;
+      box-shadow: 0 20px 45px rgba(0,0,0,.25);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      min-height: 240px;
+      display: block;
+      object-fit: cover;
+      filter: contrast(1.05) saturate(.94);
+      transition: .25s ease;
+    }
+
+    .gallery-item:hover img { transform: scale(1.04); }
+
+    .notice {
+      margin-top: 30px;
+      background: rgba(0,0,0,.4);
+      border-left: 4px solid var(--gold);
+      padding: 22px;
+      color: var(--muted);
+      border-radius: 6px;
+    }
+
+    .notice h3 {
+      color: var(--gold2);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 10px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .card {
+      background: linear-gradient(145deg, rgba(39,52,31,.55), rgba(17,19,22,.94));
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 22px 18px;
+      min-height: 128px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .icon { color: var(--gold2); font-size: 24px; }
+    .card h3 { text-transform: uppercase; font-size: 14px; letter-spacing: 1.2px; }
+
+    form { display: grid; gap: 14px; margin-top: 24px; }
+
+    input, textarea {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid var(--line);
+      background: rgba(0,0,0,.42);
+      color: var(--text);
+      border-radius: 6px;
+      outline: none;
+    }
+
+    textarea { min-height: 130px; resize: vertical; }
+    input:focus, textarea:focus { border-color: var(--gold2); }
+
+    .email-box {
+      margin-top: 22px;
+      color: var(--gold2);
+      font-weight: 900;
+      letter-spacing: .5px;
+      word-break: break-word;
+    }
+
+    .ai-fab {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 2000;
+      border: 1px solid var(--gold);
+      background: linear-gradient(135deg, var(--gold2), var(--gold));
+      color: #111;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 14px 18px;
+      border-radius: 999px;
+      box-shadow: 0 0 25px rgba(240,194,95,.35);
+      cursor: pointer;
+    }
+
+    .ai-panel {
+      position: fixed;
+      right: 22px;
+      bottom: 82px;
+      width: min(390px, calc(100vw - 32px));
+      max-height: 72vh;
+      z-index: 2000;
+      display: none;
+      flex-direction: column;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+      background: rgba(8, 9, 10, .98);
+      box-shadow: 0 22px 60px rgba(0,0,0,.65);
+    }
+
+    .ai-panel.open { display: flex; }
+
+    .ai-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+      background: linear-gradient(135deg, rgba(240,194,95,.18), rgba(0,0,0,.2));
+      border-bottom: 1px solid var(--line);
+    }
+
+    .ai-head strong {
+      color: var(--gold2);
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+      font-size: 14px;
+    }
+
+    .ai-close {
+      background: transparent;
+      border: none;
+      color: var(--text);
+      font-size: 24px;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .ai-body {
+      padding: 14px;
+      overflow-y: auto;
+      display: grid;
+      gap: 10px;
+    }
+
+    .ai-msg {
+      padding: 11px 12px;
+      border-radius: 10px;
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .ai-msg.bot {
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.08);
+      color: var(--muted);
+    }
+
+    .ai-msg.user {
+      background: rgba(240,194,95,.14);
+      border: 1px solid var(--line);
+      color: var(--text);
+      justify-self: end;
+      max-width: 86%;
+    }
+
+    .ai-quick {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      padding: 0 14px 14px;
+    }
+
+    .ai-quick button {
+      border: 1px solid var(--line);
+      background: rgba(0,0,0,.34);
+      color: var(--gold2);
+      padding: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: .8px;
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .ai-input {
+      display: flex;
+      gap: 8px;
+      padding: 12px;
+      border-top: 1px solid var(--line);
+      background: rgba(0,0,0,.32);
+    }
+
+    .ai-input input {
+      flex: 1;
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .ai-input button {
+      min-width: 82px;
+      border: 1px solid var(--gold);
+      background: linear-gradient(135deg, var(--gold2), var(--gold));
+      color: #111;
+      border-radius: 7px;
+      font-weight: 900;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: .8px;
+    }
+
+    footer {
+      padding: 28px 0;
+      text-align: center;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      background: rgba(0,0,0,.7);
+      font-size: 13px;
+    }
+
+    @media (max-width: 980px) {
+      .program-grid, .gallery-grid { grid-template-columns: 1fr; }
+      .program-card img { height: auto; }
+      .cards { grid-template-columns: repeat(2, 1fr); }
+      .split { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 860px) {
+      .menu { display: none; }
+    }
+
+    @media (max-width: 520px) {
+      .brand span { font-size: 12px; }
+      .brand img { width: 46px; height: 46px; }
+      .btn { width: 100%; }
+      .cards { grid-template-columns: 1fr; }
+      section { padding: 58px 0; }
+      .ai-fab { right: 14px; bottom: 14px; padding: 12px 14px; font-size: 12px; }
+      .ai-panel { right: 12px; bottom: 68px; }
+      .ai-quick { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#home">
+        <img src="images/logo.jpg" alt="FAREAST LEGION SF PARATROOPERS Logo">
+        <span>FAREAST LEGION<br>SF PARATROOPERS</span>
+      </a>
+      <nav class="menu">
+        <a href="#home">Home</a>
+        <a href="#who">Who We Are</a>
+        <a href="#mission">Mission</a>
+        <a href="#programs">Programs / Events</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#membership">Membership</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-content">
+        <img src="images/logo.jpg" alt="FAREAST LEGION SF PARATROOPERS Logo" class="hero-logo">
+        <h1>Upholding the Legacy of the Elite Forces</h1>
+        <div class="subheadline">FAREAST LEGION SF PARATROOPERS</div>
+        <div class="tagline">Honoring airborne tradition, mastering tactical excellence.</div>
+        <p>Join a professional association defined by discipline, brotherhood, and elite professionalism. Discover our commitment to enduring service, tactical readiness, airborne heritage, international camaraderie, and lasting impact.</p>
+        <div class="btn-row">
+          <a class="btn gold" href="#who">Learn More About Us</a>
+          <a class="btn dark" href="#programs">View Programs / Events</a>
+          <a class="btn dark" href="#contact">Contact Us</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="who">
+      <div class="container">
+        <h2 class="section-title">Who We Are</h2>
+        <p class="lead"><strong>FAREAST LEGION SF PARATROOPERS</strong> is an association composed of paratroopers, Special Forces, elite police, military personnel, bureaus, and allied-country counterparts, including active duty personnel, reserve personnel, and retired personnel.</p>
+        <br>
+        <p class="lead">The organization is built on shared experience, discipline, service, brotherhood, international camaraderie, and a strong commitment to professional excellence.</p>
+      </div>
+    </section>
+
+    <section id="mission">
+      <div class="container split">
+        <div class="panel">
+          <h2 class="section-title">Mission</h2>
+          <p>To preserve airborne heritage, strengthen brotherhood, promote discipline, and uphold professional excellence among elite forces, law enforcement personnel, military members, allied-country counterparts, and qualified individuals.</p>
+        </div>
+        <div class="panel">
+          <h2 class="section-title">Vision</h2>
+          <p>To become a respected international association built on service, tactical readiness, leadership, airborne heritage, international camaraderie, and enduring legacy.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="programs">
+      <div class="container">
+        <h2 class="section-title">Programs / Events</h2>
+        <p class="lead">Our programs and events are designed for <strong>law enforcement personnel, military personnel, private safety and security professionals, aspiring LEA applicants, tactical enthusiasts, and qualified individuals</strong> seeking practical skills development and professional advancement.</p>
+
+        <div class="program-grid">
+          <div class="program-card">
+            <img src="images/program-cqb.jpg" alt="Special Tactical Response CQB program poster">
+            <div class="content">
+              <h3>Special Tactical Response CQB</h3>
+              <p>A tactical close-quarters program focused on movement, response drills, teamwork, and operational readiness.</p>
+            </div>
+          </div>
+
+          <div class="program-card">
+            <img src="images/program-marksmanship.jpg" alt="Iron Sight Marksmanship Challenge poster">
+            <div class="content">
+              <h3>Iron Sight Marksmanship Challenge</h3>
+              <p>A marksmanship-focused event emphasizing accuracy, weapon handling, consistency, and practical shooting fundamentals.</p>
+            </div>
+          </div>
+
+          <div class="program-card">
+            <img src="images/program-scuba.jpg" alt="Military Scuba Diver program poster">
+            <div class="content">
+              <h3>Military Scuba Diver</h3>
+              <p>An operational diver program centered on diver operations, open water tasks, mission execution, and underwater capability development.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="notice">
+          <h3>Awards and Certification Notice</h3>
+          <p>All badges, certificates, and qualification awards shall be issued only by the authorized host or instructor who conducted the respective program.</p>
+          <br>
+          <p>However, the issuance, recognition, classification, or modification of such awards shall remain subject to the approval of FLP, based on qualifications deemed fit and appropriate. Certain badges, certificates, or qualification awards may not be applicable to all programs and shall be issued only when relevant to the nature, scope, and requirements of the respective program conducted.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery">
+      <div class="container">
+        <h2 class="section-title">Gallery</h2>
+        <p class="lead">Previous tactical operation programs, events, airborne heritage, field activities, and maritime-related professional development photos.</p>
+        <div class="gallery-grid">
+          <div class="gallery-item"><img src="images/gallery-cqb-field.jpg" alt="Tactical field activity"></div>
+          <div class="gallery-item"><img src="images/gallery-maritime-1.jpg" alt="Maritime operation activity"></div>
+          <div class="gallery-item"><img src="images/gallery-maritime-2.jpg" alt="Open water operation activity"></div>
+          <div class="gallery-item"><img src="images/gallery-range.jpg" alt="Marksmanship field event"></div>
+          <div class="gallery-item"><img src="images/gallery-maritime-3.jpg" alt="Maritime team activity"></div>
+          <div class="gallery-item"><img src="images/gallery-airborne.jpg" alt="Airborne parachute activity"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="membership">
+      <div class="container">
+        <h2 class="section-title">Membership</h2>
+        <p class="lead">Membership is intended for qualified paratroopers, Special Forces, elite police, military personnel, bureaus, allied-country counterparts, active duty personnel, reserve personnel, retired personnel, and qualified individuals who share the values of discipline, service, brotherhood, international camaraderie, and professional excellence.</p>
+        <div class="cards">
+          <div class="card"><span class="icon">◆</span><h3>Discipline</h3></div>
+          <div class="card"><span class="icon">◆</span><h3>Brotherhood</h3></div>
+          <div class="card"><span class="icon">◆</span><h3>Honor</h3></div>
+          <div class="card"><span class="icon">◆</span><h3>Service</h3></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container split">
+        <div>
+          <h2 class="section-title">Contact Us</h2>
+          <p class="lead">For official inquiries, membership, programs, events, courses, challenges, tactical operation exercises, and professional development, contact us using the form below.</p>
+          <div class="email-box">fareastlegionsfparatroopers@gmail.com</div>
+        </div>
+        <div class="panel">
+          <form action="mailto:fareastlegionsfparatroopers@gmail.com" method="post" enctype="text/plain">
+            <input type="text" name="Full Name" placeholder="Full Name" required>
+            <input type="email" name="Email Address" placeholder="Email Address" required>
+            <input type="tel" name="Mobile Contact Number" placeholder="Mobile Contact Number">
+            <input type="text" name="Country" placeholder="Country">
+            <input type="text" name="Background / Affiliation" placeholder="Background / Affiliation">
+            <textarea name="Message" placeholder="Message" required></textarea>
+            <button class="btn gold" type="submit">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <button class="ai-fab" onclick="toggleAI()">AI Assistant</button>
+
+  <div class="ai-panel" id="aiPanel" aria-label="FAREAST LEGION AI Assistant">
+    <div class="ai-head">
+      <strong>FAREAST LEGION AI Assistant</strong>
+      <button class="ai-close" onclick="toggleAI()" aria-label="Close AI Assistant">×</button>
+    </div>
+
+    <div class="ai-body" id="aiBody">
+      <div class="ai-msg bot">
+        Welcome to FAREAST LEGION SF PARATROOPERS. Ask about membership, programs/events, contact details, or awards and certification notice.
+      </div>
+    </div>
+
+    <div class="ai-quick">
+      <button onclick="quickAsk('membership')">Membership</button>
+      <button onclick="quickAsk('programs')">Programs / Events</button>
+      <button onclick="quickAsk('contact')">Contact</button>
+      <button onclick="quickAsk('awards')">Awards Notice</button>
+    </div>
+
+    <div class="ai-input">
+      <input id="aiInput" type="text" placeholder="Ask a question..." onkeydown="if(event.key==='Enter'){sendAI()}" />
+      <button onclick="sendAI()">Send</button>
+    </div>
+  </div>
+
+  <script>
+    function toggleAI() {
+      document.getElementById('aiPanel').classList.toggle('open');
+    }
+
+    function addMessage(text, type) {
+      const body = document.getElementById('aiBody');
+      const msg = document.createElement('div');
+      msg.className = 'ai-msg ' + type;
+      msg.textContent = text;
+      body.appendChild(msg);
+      body.scrollTop = body.scrollHeight;
+    }
+
+    function getAIReply(input) {
+      const q = input.toLowerCase();
+
+      if (q.includes('member') || q.includes('join') || q.includes('apply')) {
+        return 'Membership is intended for qualified paratroopers, Special Forces, elite police, military personnel, bureaus, allied-country counterparts, active duty personnel, reserve personnel, retired personnel, and qualified individuals who share discipline, service, brotherhood, international camaraderie, and professional excellence.';
+      }
+
+      if (q.includes('program') || q.includes('event') || q.includes('course') || q.includes('challenge') || q.includes('exercise') || q.includes('cqb') || q.includes('scuba') || q.includes('marksmanship')) {
+        return 'Programs / Events include Special Tactical Response CQB, Iron Sight Marksmanship Challenge, Military Scuba Diver, Combat Diver, Combat Kali, CBRNE-HAZMAT, EOD / UDT, Airborne Heritage, and tactical operation exercises.';
+      }
+
+      if (q.includes('contact') || q.includes('email') || q.includes('message')) {
+        return 'For official inquiries, contact: fareastlegionsfparatroopers@gmail.com. You may also use the contact form on this website.';
+      }
+
+      if (q.includes('award') || q.includes('certificate') || q.includes('badge') || q.includes('qualification')) {
+        return 'All badges, certificates, and qualification awards shall be issued only by the authorized host or instructor who conducted the respective program, subject to FLP approval and relevance to the nature, scope, and requirements of the program.';
+      }
+
+      if (q.includes('who') || q.includes('organization') || q.includes('association')) {
+        return 'FAREAST LEGION SF PARATROOPERS is an association composed of paratroopers, Special Forces, elite police, military personnel, bureaus, and allied-country counterparts, including active duty, reserve, and retired personnel.';
+      }
+
+      return 'I can answer basic questions about FAREAST LEGION SF PARATROOPERS membership, programs/events, contact details, and awards notice. For official inquiries, email fareastlegionsfparatroopers@gmail.com.';
+    }
+
+    function sendAI() {
+      const input = document.getElementById('aiInput');
+      const text = input.value.trim();
+      if (!text) return;
+      addMessage(text, 'user');
+      input.value = '';
+      setTimeout(() => addMessage(getAIReply(text), 'bot'), 300);
+    }
+
+    function quickAsk(topic) {
+      const labels = {
+        membership: 'Membership',
+        programs: 'Programs / Events',
+        contact: 'Contact',
+        awards: 'Awards and Certification Notice'
+      };
+      addMessage(labels[topic], 'user');
+      setTimeout(() => addMessage(getAIReply(topic), 'bot'), 250);
+    }
+  </script>
+
+  <footer>
+    <div class="container">
+      © 2026 FAREAST LEGION SF PARATROOPERS. All Rights Reserved.
+    </div>
+  </footer>
+</body>
+</html>
